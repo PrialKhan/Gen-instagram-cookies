@@ -2,13 +2,12 @@ import requests
 import time
 import csv
 import os
-from getpass import getpass
 from colorama import Fore, Style, init
 
 init(autoreset=True)  # Auto-reset color after every print
 
 def create_csv_file():
-    folder_name = "/sdcard/Prial ig Cookies"  # Shared storage
+    folder_name = "/sdcard/Prial ig Cookies"
     os.makedirs(folder_name, exist_ok=True)
 
     base_filename = "Ok Cookies"
@@ -98,7 +97,7 @@ csv_filename = create_csv_file()
 while True:
     print(Fore.YELLOW + f"\n🔐 Account #{counter}")
     username = input(Fore.BLUE + "👤 Enter Instagram username: ").strip()
-    password = getpass(Fore.BLUE + "🔑 Enter Instagram password: ").strip()
+    password = input(Fore.BLUE + "🔑 Enter Instagram password: ").strip()  # visible password
 
     cookies = login_instagram(username, password)
 
@@ -119,3 +118,4 @@ while True:
     print(Fore.CYAN + f"   🔄 Total Tried: {success + failed}")
 
     input(Fore.MAGENTA + "\n🔁 Press Enter to continue with another account...")
+
